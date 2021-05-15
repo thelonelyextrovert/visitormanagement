@@ -1,0 +1,178 @@
+
+{% extends 'base.html' %}
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-light" style="background-color: #f1f1f1;">
+  <a class="navbar-brand" href="#">
+    <img src="/static/featherlitelogo.png" width="100" height="30" class="d-inline-block align-top" alt=""> Featherlite
+  </a>
+</nav>
+  <div class = "center">
+    <div class="card">
+    <h2>Enter your details</h2>
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">First Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="John" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputLName">Last Name</label>
+        <input type="text" class="form-control" id="inputLName" placeholder="Doe" required>
+      </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="abc@example.com" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCompany">Company Name</label>
+      <input type="text" class="form-control" id="inputCompany" placeholder="Venba Tech">
+    </div>
+</div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputCardType">Select Identification</label>
+            <select id="inputCardType" class="form-control" onchange="check()" required>
+                <option selected value="">-select one-</option>
+                <option value='Aadhar_Card'>Aadhar Card</option>
+                <option value='PAN_Card'>PAN Card</option>
+            </select>
+          </div>
+      <div class="form-group col-md-6">
+        <label for="inputID">--</label>
+        <input type="text" class="form-control" id="inputID" disabled="disabled" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputPhone">Mobile Number</label>
+        <input type="number" class="form-control" id="inputPhone" required>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputCardType">Purpose of Visit</label>
+            <select id="inputCardType" class="form-control" required>
+                <option selected value="">-select one-</option>
+                <option value='Official'>Official</option>
+                <option value='Personal'>Personal</option>
+                <option value='Interview'>Interview</option>
+                <option value='Other'>Other</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputDate">Date and time of Visit</label>
+            <input type="datetime-local" class="form-control" id="inputDate" required>
+          </div>   
+    </div>
+    <h2>Enter host details</h2>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName1">First Name</label>
+        <input type="text" class="form-control" id="inputName1" placeholder="Jane" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputLName1">Last Name</label>
+        <input type="text" class="form-control" id="inputLName1" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCompanyName1">Company Name</label>
+        <input type="text" class="form-control" id="inputCompanyName1" placeholder="Venba Tech" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputDesignation">Designation</label>
+        <input type="text" class="form-control" id="inputDesignation" placeholder="Manager" required>
+      </div>
+    </div>
+    <div class="form-group">
+       <h2>Please check the relevant boxes:</h2> 
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Do you have, or have you had in the last 14 days, a fever of greater than 100 F?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Have you or any family member been tested for COVID-19?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Have you or any family members been diagnosed with, or tested positive for COVID-19?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Do you currently have shortness of breath or difficulty breathing?            
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Do you have any difficulties with your senses of taste or smell at present?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Do you have headache, weakness or fatigue?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Do you have any “flu-like” symptoms, such as cough or chills in the last 14 days?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Have you traveled outside India in the last 30 days?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Have you traveled more than 80 km from home in the last 30 days?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+            Have you attended a gathering of 10 or more people in the last 30 days?          
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+</div>
+  </div>
+
+<script>
+    function check() {
+if(document.getElementById('inputCardType').value != "")
+    document.getElementById('inputID').disabled = false;
+else
+    document.getElementById('inputID').disabled = true;
+}
+</script>
+
+<script>
+    $('#inputCardType').change(function() {
+    var labels = {
+        'Aadhar_Card' : 'Aadhar Card Number',
+        'PAN_Card' : 'PAN Card Number',
+        '': '--'
+    }      
+    $("label[for='inputID']").html(labels[$(this).val()]);
+});
+</script>
+
+  {% endblock %}
